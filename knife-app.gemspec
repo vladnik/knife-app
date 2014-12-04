@@ -6,8 +6,8 @@ require 'knife/app/version'
 Gem::Specification.new do |spec|
   spec.name          = "knife-app"
   spec.version       = Knife::App::VERSION
-  spec.authors       = ["vladnik"]
-  spec.email         = ["vladnik@demandbase.com"]
+  spec.authors       = ["Volodymyr Ladnik"]
+  spec.email         = ["Volodymyr.UA@gmail.com"]
   spec.summary       = 'Heroku-style Chef commands'
   spec.description   = 'Run application-specific commands in no time'
   spec.homepage      = ""
