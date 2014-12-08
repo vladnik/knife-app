@@ -1,16 +1,15 @@
-require "chef/knife"
+require "yaml"
+require "knife/app/runner"
 require "knife/app/version"
+require "knife/app/search"
+require "knife/app/ssh"
 
 module Knife
   module App
     MODES = [:single_node, :multiple_nodes]
 
     def self.run
-      # Configure Chef
-      Chef::Knife.new.configure_chef
-      @query = 'role:summarizer'
-      # Select mode
-      select_mode
+      Runner.new
     end
 
     def self.select_mode
@@ -64,6 +63,13 @@ module Knife
         puts node_template(node, index)
         index += 1
       end
+      z = Chef::Knife::Ssh.new
+      z.configure_chef
+      puts z.config
+    end
+
+    def ssh
+      Chef::Knife::Ssh.run
     end
 
     def self.node_template(node, index)
